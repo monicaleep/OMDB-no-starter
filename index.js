@@ -13,37 +13,13 @@ app.use(express.urlencoded({
   extended: false
 }));
 
-
+app.use('/movies',require('./controllers/movies'))
 
 app.get('/', (req, res) => {
   res.render('home')
 })
 
-// read all movies
-app.get('/movies', (req, res) => {
-  const searchQuery = req.query.q;
-  axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s='${searchQuery}'`)
-    .then(response => {
-      res.render('results',{data:response.data})
-    })
-    .catch(err => {
-      console.log(err)
-    })
-})
 
-
-
-// show details about 1 movie
-app.get('/movies/:id', (req, res) => {
-  let id = req.params.id;
-
-  axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.API_KEY}`)
-    .then(response=>{
-      console.log(response.data)
-      res.render('show', {data: response.data})
-    })
-    .catch(err=>console.log(err))
-})
 
 // create a fave movie
 app.post('/faves', (req, res) => {

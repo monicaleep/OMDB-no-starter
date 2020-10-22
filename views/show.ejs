@@ -3,6 +3,7 @@
 <img src="<%=data.Poster%>" alt="Poster for <%=data.Title%>" width=200>
 <p>Released in <%=data.Year%>.</p>
 <p>Synopsis: <%=data.Plot%></p>
+<%= '⭐️'.repeat(Math.round(data.imdbRating)) %>
 <% data.Ratings.forEach(rating=>{ %>
   <% if(rating.Source === 'Rotten Tomatoes'){ %>
     <h3>Rotten Tomatoes Score: <%=rating.Value%></h3>
