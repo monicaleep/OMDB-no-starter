@@ -1,1 +1,7 @@
 <h1>list all movies</h1>
+<ul>
+  <% data.Search.forEach(movie =>{ %>
+    <li><%=movie.Title%>, released in <%=movie.Year%>. <a href="/movies/<%=movie.imdbID%>">Read More</a> </li>
+
+<%  }) %>
+</ul>

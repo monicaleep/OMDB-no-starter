@@ -1,1 +1,10 @@
-<h1>show data about  MOVIE</h1>
+<h1>More information about <%=data.Title%></h1>
+<p>Directed By <%=data.Director%></p>
+<img src="<%=data.Poster%>" alt="Poster for <%=data.Title%>" width=200>
+<p>Released in <%=data.Year%>.</p>
+<p>Synopsis: <%=data.Plot%></p>
+<% data.Ratings.forEach(rating=>{ %>
+  <% if(rating.Source === 'Rotten Tomatoes'){ %>
+    <h3>Rotten Tomatoes Score: <%=rating.Value%></h3>
+<%   } %>
+<% }) %>
